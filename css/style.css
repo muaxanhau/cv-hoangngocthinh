@@ -122,8 +122,8 @@ body {
     width: 100%;
     height: 100%;
     background-image: url("../assets/images/splash.jpg");
-    background-size: 100% 100%;
-    background-repeat: no-repeat;
+    background-size: 100% auto;
+    background-repeat: repeat-y;
     background-position: center;
     mix-blend-mode: soft-light;
 }
@@ -1100,7 +1100,8 @@ section.right-container>div[class*="info"]:hover>.content>.item:after {
 
 @media only screen and (max-width: 600px) {
      :root {
-        --base-unit-font-size: clamp(0.8rem, 3.5vw, 1.8rem);
+        --width-main-container: 0.9;
+        --base-unit-font-size: clamp(0.8rem, 4.5vw, 1.8rem);
     }
     .main-container {
         flex-direction: column;
