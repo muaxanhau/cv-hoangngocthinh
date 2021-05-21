@@ -298,8 +298,8 @@ body {
     border-radius: var(--border-radius-value);
     box-shadow: 10px 10px 20px var(--color-2), -10px 10px 20px var(--color-2);
     z-index: 1;
-    /* animation: show-main-container-animation var(--duration-display-main-container) var(--delay-display-main-container) ease-in forwards;
-    opacity: 0; */
+    animation: show-main-container-animation var(--duration-display-main-container) var(--delay-display-main-container) ease-in forwards;
+    opacity: 0;
 }
 
 @keyframes show-main-container-animation {
@@ -375,11 +375,8 @@ section.right-container) {
 
 .main-container .avatar {
     position: relative;
-    /* height: fit-content; */
-    /* aspect-ratio: 4/5; */
     display: flex;
     flex-direction: column;
-    /* justify-content: space-evenly; */
     gap: var(--gap-column-spacing);
     align-items: center;
     z-index: 1;
