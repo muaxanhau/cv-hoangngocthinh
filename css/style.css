@@ -1101,7 +1101,7 @@ section.right-container>div[class*="info"]:hover>.content>.item:after {
 @media only screen and (max-width: 600px) {
      :root {
         --width-main-container: 0.9;
-        --base-unit-font-size: clamp(0.8rem, 4.5vw, 1.8rem);
+        --base-unit-font-size: clamp(0.8rem, 4.2vw, 1.8rem);
     }
     .main-container {
         flex-direction: column;
