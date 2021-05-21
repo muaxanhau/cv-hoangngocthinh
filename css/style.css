@@ -288,7 +288,7 @@ body {
     --duration-display-main-container: 2s;
     --delay-display-main-container: 3s;
     --border-radius-value: 25px;
-    --shadow-inset-value: 2px;
+    --shadow-inset-value: 3px;
     --shadow-inset-shape-left: inset var(--shadow-inset-value) calc(var(--shadow-inset-value) * -1) 3px var(--shadow-color), inset var(--shadow-inset-value) calc(var(--shadow-inset-value)) 3px var(--shadow-color);
     --shadow-inset-shape-right: inset calc(var(--shadow-inset-value) * -1) calc(var(--shadow-inset-value) * -1) 3px var(--shadow-color), inset calc(var(--shadow-inset-value) * -1) calc(var(--shadow-inset-value)) 3px var(--shadow-color);
     --shadow-color: rgb(197, 202, 241, 0.35);
@@ -321,7 +321,7 @@ section.right-container) {
 .main-container>section.left-container {
     width: var(--left-width-percent);
     background-color: var(--color-2);
-    box-shadow: var(--shadow-inset-shape-left);
+    box-shadow: inset 0 calc(var(--shadow-inset-value) * -1) 3px var(--shadow-color), inset var(--shadow-inset-value) var(--shadow-inset-value) 3px var(--shadow-color);
     border-top-left-radius: var(--border-radius-value);
     border-bottom-left-radius: var(--border-radius-value);
 }
@@ -346,15 +346,14 @@ section.right-container) {
     width: 100%;
     aspect-ratio: 1;
     border-top-left-radius: var(--border-radius-value);
-    box-shadow: var(--shadow-inset-shape-left);
-    clip-path: circle(85% at 0 0);
+    box-shadow: inset var(--shadow-inset-value) calc(var(--shadow-inset-value)) 3px var(--shadow-color);
     background: linear-gradient(135deg, var(--color-3), var(--color-5), var(--color-4), var(--color-2), var(--color-2), var(--color-2), var(--color-2), var(--color-2));
 }
 
 .main-container>section.right-container {
     width: calc(100% - var(--left-width-percent));
     background-color: var(--color-6);
-    box-shadow: var(--shadow-inset-shape-right);
+    box-shadow: inset 0 calc(var(--shadow-inset-value) * -1) 3px var(--shadow-color), inset calc(var(--shadow-inset-value) * -1) var(--shadow-inset-value) 3px var(--shadow-color);
     border-top-right-radius: var(--border-radius-value);
     border-bottom-right-radius: var(--border-radius-value);
 }
@@ -607,6 +606,7 @@ section.right-container) {
     flex-direction: column;
     gap: calc(var(--gap-column-spacing) / 2);
     margin-bottom: calc(var(--gap-column-spacing));
+    z-index: 1;
 }
 
 .contact>.item-cont {
@@ -842,9 +842,8 @@ section.left-container div[class*="info"] .item {
 
 section.left-container .item>.grade {
     --border-radius-value: 25px;
-    position: relative;
     height: calc(var(--base-unit-font-size) / 1.75);
-    background: linear-gradient(var(--color-2), var(--color-8), var(--color-2));
+    background: linear-gradient(var(--color-2), var(--color-6), var(--color-2));
     border-radius: var(--border-radius-value);
     overflow: hidden;
 }
@@ -853,17 +852,6 @@ section.left-container .item>.grade>div {
     height: 100%;
     border-radius: var(--border-radius-value);
     background-color: var(--color-4);
-}
-
-section.left-container .item>.grade>div:before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 50%;
-    height: 100%;
-    border-radius: var(--border-radius-value);
-    background: linear-gradient(75deg, var(--color-3), transparent);
 }
 
 section.left-container .item>.detail {
@@ -1106,4 +1094,38 @@ section.right-container>div[class*="info"]:hover>.content>.item:after {
 
 .content>.item>div[class*="-time-container"]>:nth-child(2) {
     flex-shrink: 0;
+    max-width: 45%;
+    text-align: right;
+}
+
+@media only screen and (max-width: 600px) {
+     :root {
+        --base-unit-font-size: clamp(0.8rem, 3.5vw, 1.8rem);
+    }
+    .main-container {
+        flex-direction: column;
+    }
+    .main-container>:is(section.left-container,
+    section.right-container) {
+        width: 100%;
+    }
+    .main-container>section.left-container {
+        box-shadow: inset var(--shadow-inset-value) 0 3px var(--shadow-color), inset calc(var(--shadow-inset-value) * -1) 0 3px var(--shadow-color);
+        border-radius: 0;
+        border-top-left-radius: var(--border-radius-value);
+        border-top-right-radius: var(--border-radius-value);
+    }
+    .main-container>section.left-container:after {
+        box-shadow: inset var(--shadow-inset-value) var(--shadow-inset-value) 3px var(--shadow-color), inset calc(var(--shadow-inset-value) * -1) 0 3px var(--shadow-color);
+        clip-path: polygon(0 0, 100% 0, 100% 95%, 0 95%);
+        border-radius: 0;
+        border-top-left-radius: var(--border-radius-value);
+        border-top-right-radius: var(--border-radius-value);
+    }
+    .main-container>section.right-container {
+        box-shadow: inset var(--shadow-inset-value) calc(var(--shadow-inset-value) * -1) 3px var(--shadow-color), inset calc(var(--shadow-inset-value) * -1) 0 3px var(--shadow-color);
+        border-radius: 0;
+        border-bottom-left-radius: var(--border-radius-value);
+        border-bottom-right-radius: var(--border-radius-value);
+    }
 }
