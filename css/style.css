@@ -309,6 +309,11 @@ body {
     }
 }
 
+::selection {
+    color: var(--color-4);
+    background: var(--color-5);
+}
+
 .main-container> :is(section.left-container,
 section.right-container) {
     position: relative;
