@@ -1,0 +1,1109 @@
+:root {
+    --color-1: rgb(22, 87, 231);
+    --color-2: rgb(24, 63, 148);
+    --color-3: rgb(55, 0, 60);
+    --color-4: rgb(249, 59, 120);
+    --color-5: rgb(18, 243, 200);
+    --color-6: rgb(245, 245, 245);
+    --color-7: rgb(230, 229, 243);
+    --color-8: rgb(197, 202, 241);
+    --color-9: rgb(52, 70, 112);
+    --color-10: rgb(0, 255, 21);
+    --base-unit-font-size: clamp(0.7rem, 1.7vw, 1.4rem);
+    --max-width-absolute: 1280px;
+    --width-main-container: 0.8;
+    --loader-size: clamp(100px, 5vw, calc(var(--max-width-absolute) * 0.05));
+    --gap-column-spacing: calc(var(--base-unit-font-size) * 2);
+    --gap-row-spacing: calc(var(--base-unit-font-size) * 1.5);
+    --left-width-percent: 35%;
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    position: relative;
+    --scrollbar-main-color: var(--color-5);
+    background: linear-gradient(var(--color-9), var(--scrollbar-main-color), var(--color-9));
+    border-radius: 27%;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    --scrollbar-main-color: var(--color-4);
+}
+
+::-webkit-scrollbar-track {
+    background: var(--color-9);
+}
+
+* {
+    box-sizing: border-box;
+}
+
+.uppercase {
+    text-transform: uppercase;
+}
+
+.letter-spacing {
+    opacity: 0.9;
+    letter-spacing: calc(var(--base-unit-font-size) / 8);
+}
+
+body {
+    position: relative;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    min-height: 100vh;
+}
+
+.main-container :is(p, h1, h2, h3, h4, h5, h6) {
+    margin: calc(var(--base-unit-font-size) / 2) 0;
+    font-size: var(--font-size-val, none);
+    font-weight: var(--font-weight-val, 100);
+}
+
+.main-container p {
+    --font-size-val: var(--base-unit-font-size);
+}
+
+.container h1 {
+    --font-size-val: calc(var(--base-unit-font-size) * 3);
+    --font-weight-val: 900;
+}
+
+.main-container h2 {
+    --font-size-val: calc(var(--base-unit-font-size) * 2.3);
+    --font-weight-val: 900;
+}
+
+.main-container h3 {
+    --font-size-val: calc(var(--base-unit-font-size) * 1.8);
+    --font-weight-val: 700;
+}
+
+.main-container h4 {
+    --font-size-val: calc(var(--base-unit-font-size) * 1.5);
+    --font-weight-val: 600;
+}
+
+.main-container h5 {
+    --font-size-val: calc(var(--base-unit-font-size) * 1.2);
+    --font-weight-val: 600;
+}
+
+.main-container h6 {
+    --font-size-val: calc(var(--base-unit-font-size) * 1);
+    --font-weight-val: 600;
+}
+
+
+/* Background ================================================================================================================================== */
+
+.main-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background: linear-gradient(127deg, var(--color-2) 11%, var(--color-1) 30%, var(--color-5) 98%);
+}
+
+.main-background:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url("../assets/images/splash.jpg");
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+    mix-blend-mode: soft-light;
+}
+
+.main-background>.symbol {
+    position: absolute;
+    width: var(--symbol-width);
+    aspect-ratio: 3/4;
+    clip-path: polygon(10% 10%, 7% 25%, 0 10%, 0 0, 50% 5%, 100% 0, 100% 10%, 93% 25%, 90% 10%, 70% 10%, 55% 20%, 65% 15%, 55% 35%, 62% 40%, 55% 70%, 57% 90%, 65% 95%, 75% 95%, 70% 100%, 30% 100%, 25% 95%, 35% 95%, 43% 90%, 45% 70%, 38% 40%, 45% 35%, 35% 15%, 45% 20%, 30% 10%);
+    top: 100%;
+    left: var(--left-position-symbol);
+    background-color: var(--color-10);
+    backdrop-filter: blur(100px);
+    mix-blend-mode: exclusion;
+    animation: background-symbol-animation var(--background-symbol-duration) infinite ease-in-out;
+    animation-delay: var(--background-symbol-delay-time, 0s);
+}
+
+.main-background>.symbol:nth-child(1) {
+    --symbol-width: 7vw;
+    --left-position-symbol: 2%;
+    --background-symbol-duration: 27s;
+    --background-symbol-delay-time: 2.5s;
+}
+
+.main-background>.symbol:nth-child(2) {
+    --symbol-width: 4vw;
+    --left-position-symbol: 8%;
+    --background-symbol-duration: 15s;
+    --background-symbol-delay-time: 2s;
+}
+
+.main-background>.symbol:nth-child(3) {
+    --symbol-width: 8vw;
+    --left-position-symbol: 20%;
+    --background-symbol-duration: 13s;
+}
+
+.main-background>.symbol:nth-child(4) {
+    --symbol-width: 6vw;
+    --left-position-symbol: 28%;
+    --background-symbol-duration: 23s;
+}
+
+.main-background>.symbol:nth-child(5) {
+    --symbol-width: 5vw;
+    --left-position-symbol: 50%;
+    --background-symbol-duration: 7s;
+}
+
+.main-background>.symbol:nth-child(6) {
+    --symbol-width: 5.5vw;
+    --left-position-symbol: 75%;
+    --background-symbol-duration: 18s;
+    --background-symbol-delay-time: 5s;
+}
+
+.main-background>.symbol:nth-child(7) {
+    --symbol-width: 10vw;
+    --left-position-symbol: 83%;
+    --background-symbol-duration: 55s;
+}
+
+@keyframes background-symbol-animation {
+    0% {}
+    100% {
+        top: 0;
+        transform: rotate(1080deg) translateY(-100%);
+    }
+}
+
+
+/* Loader ================================================================================================================================== */
+
+.loader {
+    --loader-iteration-count: 2;
+    --loader-duration: 3s;
+    --loader-circle-size: 0.3;
+}
+
+.loader>.circle {
+    position: fixed;
+    width: var(--loader-size);
+    aspect-ratio: 1;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    animation: loader-rotate-animation var(--loader-duration) var(--loader-delay-time) ease-in-out var(--loader-iteration-count);
+}
+
+.loader>.circle:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: calc(var(--loader-size) * var(--loader-circle-size));
+    aspect-ratio: 1;
+    border-radius: 100%;
+    background-color: var(--color-4);
+    transform: scale(0);
+    animation: loader-circle-scale-animation var(--loader-duration) var(--loader-delay-time) ease-in-out var(--loader-iteration-count);
+}
+
+.loader>.circle:nth-child(1) {
+    --loader-delay-time: 0.1s;
+}
+
+.loader>.circle:nth-child(2) {
+    --loader-delay-time: 0.2s;
+}
+
+.loader>.circle:nth-child(3) {
+    --loader-delay-time: 0.4s;
+}
+
+.loader>.circle:nth-child(4) {
+    --loader-delay-time: 0.6s;
+}
+
+.loader>.circle:nth-child(5) {
+    --loader-delay-time: 0.8s;
+}
+
+.loader>.circle:nth-child(6) {
+    --loader-delay-time: 1s;
+}
+
+.loader>.circle:nth-child(7) {
+    --loader-delay-time: 1.2s;
+}
+
+.loader>.circle:nth-child(8) {
+    --loader-delay-time: 1.4s;
+}
+
+.loader>.circle:nth-child(9) {
+    --loader-delay-time: 1.6s;
+}
+
+@keyframes loader-rotate-animation {
+    0% {}
+    70%,
+    100% {
+        transform: translate(-50%, -50%) rotate(360deg);
+    }
+}
+
+@keyframes loader-circle-scale-animation {
+    0%,
+    100% {
+        transform: scale(0);
+    }
+    90% {
+        transform: scale(1);
+    }
+}
+
+
+/* Main Container ================================================================================================================================== */
+
+.main-container {
+    --duration-display-main-container: 2s;
+    --delay-display-main-container: 3s;
+    --border-radius-value: 25px;
+    --shadow-inset-value: 2px;
+    --shadow-inset-shape-left: inset var(--shadow-inset-value) calc(var(--shadow-inset-value) * -1) 3px var(--shadow-color), inset var(--shadow-inset-value) calc(var(--shadow-inset-value)) 3px var(--shadow-color);
+    --shadow-inset-shape-right: inset calc(var(--shadow-inset-value) * -1) calc(var(--shadow-inset-value) * -1) 3px var(--shadow-color), inset calc(var(--shadow-inset-value) * -1) calc(var(--shadow-inset-value)) 3px var(--shadow-color);
+    --shadow-color: rgb(197, 202, 241, 0.35);
+    margin: 100px 0;
+    width: min(calc(var(--width-main-container) * 100%), calc(var(--max-width-absolute) * var(--width-main-container)));
+    display: flex;
+    border-radius: var(--border-radius-value);
+    box-shadow: 10px 10px 20px var(--color-2), -10px 10px 20px var(--color-2);
+    z-index: 1;
+    /* animation: show-main-container-animation var(--duration-display-main-container) var(--delay-display-main-container) ease-in forwards;
+    opacity: 0; */
+}
+
+@keyframes show-main-container-animation {
+    100% {
+        opacity: 1;
+    }
+}
+
+.main-container> :is(section.left-container,
+section.right-container) {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: var(--gap-column-spacing);
+    padding: var(--gap-column-spacing) var(--gap-row-spacing);
+}
+
+.main-container>section.left-container {
+    width: var(--left-width-percent);
+    background-color: var(--color-2);
+    box-shadow: var(--shadow-inset-shape-left);
+    border-top-left-radius: var(--border-radius-value);
+    border-bottom-left-radius: var(--border-radius-value);
+}
+
+.main-container>section.left-container:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    aspect-ratio: 1;
+    background: var(--color-5);
+    filter: blur(20px);
+    z-index: -1;
+}
+
+.main-container .left-container:after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    aspect-ratio: 1;
+    border-top-left-radius: var(--border-radius-value);
+    box-shadow: var(--shadow-inset-shape-left);
+    clip-path: circle(85% at 0 0);
+    background: linear-gradient(135deg, var(--color-3), var(--color-5), var(--color-4), var(--color-2), var(--color-2), var(--color-2), var(--color-2), var(--color-2));
+}
+
+.main-container>section.right-container {
+    width: calc(100% - var(--left-width-percent));
+    background-color: var(--color-6);
+    box-shadow: var(--shadow-inset-shape-right);
+    border-top-right-radius: var(--border-radius-value);
+    border-bottom-right-radius: var(--border-radius-value);
+}
+
+.main-container>section.right-container:before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    aspect-ratio: 1;
+    background: var(--color-4);
+    filter: blur(20px);
+    z-index: -1;
+}
+
+
+/* Avatar ================================================================================================================================== */
+
+.main-container .avatar {
+    position: relative;
+    aspect-ratio: 4/5;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    z-index: 1;
+}
+
+.main-container .avatar:before,
+.main-container .avatar:after {
+    content: "";
+    position: absolute;
+    aspect-ratio: 1;
+    border-radius: 100%;
+    background: rgba(255, 255, 255, 0.7);
+    filter: blur(5px);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.7);
+    opacity: 0;
+    transition: 0.5s ease-out;
+    z-index: 11;
+}
+
+.main-container .avatar:before {
+    width: 35%;
+    top: 5%;
+    right: 5%;
+}
+
+.main-container .avatar:after {
+    width: 20%;
+    bottom: 25%;
+    left: 15%;
+}
+
+.main-container .avatar:hover:before {
+    opacity: 1;
+}
+
+.main-container .avatar:hover:after {
+    opacity: 1;
+}
+
+.avatar .img-container {
+    position: relative;
+    width: 80%;
+    aspect-ratio: 1;
+    overflow: hidden;
+    border-radius: 100%;
+    transition: 0.5s;
+}
+
+.avatar .img-container:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    box-shadow: inset 0 0 30px var(--color-2);
+    border-radius: 100%;
+    z-index: 12;
+}
+
+.avatar .img-container img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 100%;
+    transition: 0.5s;
+    animation: --change-avatar-animation 30s linear infinite;
+    animation-delay: var(--change-avatar-animation-delay, 0s);
+}
+
+.avatar>.img-container>img:nth-child(2) {
+    --change-avatar-animation-delay: 10s;
+}
+
+.avatar>.img-container>img:nth-child(3) {
+    --change-avatar-animation-delay: 20s;
+}
+
+.avatar>.img-container:hover img {
+    transition: 3s;
+    animation-play-state: paused;
+    transform: scale(1.1);
+}
+
+.avatar>.img-container:hover {
+    box-shadow: 0 0 30px var(--color-3);
+}
+
+@keyframes --change-avatar-animation {
+    0% {
+        z-index: 10;
+        opacity: 0;
+    }
+    2%,
+    33% {
+        z-index: 10;
+        opacity: 1;
+    }
+    35%,
+    100% {
+        opacity: 0;
+    }
+}
+
+.avatar> :not(.img-container) {
+    position: relative;
+    -webkit-box-reflect: below 0px linear-gradient(to bottom, transparent, rgba(0, 0, 0, 0.15));
+    text-align: center;
+    text-transform: uppercase;
+    transform: scale(1.2, 2);
+}
+
+.avatar> :not(.img-container) * {
+    display: inline-block;
+}
+
+.avatar> :not(.img-container) span {
+    --text-duration-animation-base: 0.2s;
+    background: linear-gradient(45deg, var(--color-9), var(--color-6), var(--color-9));
+    -webkit-background-clip: text;
+    color: transparent;
+    animation: avatar-text-blur 2s calc(var(--delay-span, 0s) + var(--delay-display-main-container) + var(--duration-display-main-container)) forwards ease-in-out, avatar-text-rotate 2s calc(0.1s + var(--delay-span, 0s) + var(--delay-display-main-container) + var(--duration-display-main-container)) forwards ease-in-out;
+}
+
+.avatar:hover> :not(.img-container) span {
+    animation: avatar-hover-text-animtion 0.3s calc(var(--delay-span, 0s)) forwards ease-out;
+}
+
+
+/* Hoang */
+
+.avatar> :not(.img-container)>div:nth-child(1)>span:nth-child(2) {
+    --delay-span: calc(var(--text-duration-animation-base) * 1);
+}
+
+.avatar> :not(.img-container)>div:nth-child(1)>span:nth-child(3) {
+    --delay-span: calc(var(--text-duration-animation-base) * 2);
+}
+
+.avatar> :not(.img-container)>div:nth-child(1)>span:nth-child(4) {
+    --delay-span: calc(var(--text-duration-animation-base) * 3);
+}
+
+.avatar> :not(.img-container)>div:nth-child(1)>span:nth-child(5) {
+    --delay-span: calc(var(--text-duration-animation-base) * 4);
+}
+
+
+/* Ngoc */
+
+.avatar> :not(.img-container)>div:nth-child(2)>span:nth-child(1) {
+    --delay-span: calc(var(--text-duration-animation-base) * 5);
+}
+
+.avatar> :not(.img-container)>div:nth-child(2)>span:nth-child(2) {
+    --delay-span: calc(var(--text-duration-animation-base) * 6);
+}
+
+.avatar> :not(.img-container)>div:nth-child(2)>span:nth-child(3) {
+    --delay-span: calc(var(--text-duration-animation-base) * 7);
+}
+
+.avatar> :not(.img-container)>div:nth-child(2)>span:nth-child(4) {
+    --delay-span: calc(var(--text-duration-animation-base) * 8);
+}
+
+
+/* Thinh */
+
+.avatar> :not(.img-container)>div:nth-child(3)>span:nth-child(1) {
+    --delay-span: calc(var(--text-duration-animation-base) * 9);
+}
+
+.avatar> :not(.img-container)>div:nth-child(3)>span:nth-child(2) {
+    --delay-span: calc(var(--text-duration-animation-base) * 10);
+}
+
+.avatar> :not(.img-container)>div:nth-child(3)>span:nth-child(3) {
+    --delay-span: calc(var(--text-duration-animation-base) * 11);
+}
+
+.avatar> :not(.img-container)>div:nth-child(3)>span:nth-child(4) {
+    --delay-span: calc(var(--text-duration-animation-base) * 12);
+}
+
+.avatar> :not(.img-container)>div:nth-child(3)>span:nth-child(5) {
+    --delay-span: calc(var(--text-duration-animation-base) * 13);
+}
+
+@keyframes avatar-text-blur {
+    0% {
+        opacity: 0;
+        transform: rotateY(180deg);
+    }
+    10% {
+        opacity: 1;
+        filter: blur(10px);
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes avatar-text-rotate {
+    100% {
+        transform: rotateY(0deg);
+    }
+}
+
+@keyframes avatar-hover-text-animtion {
+    30% {
+        transform: translateY(-20%);
+    }
+    80% {
+        transform: translateY(-20%) rotateY(180deg);
+    }
+}
+
+
+/* Contact ================================================================================================================================== */
+
+.contact {
+    display: flex;
+    flex-direction: column;
+    gap: calc(var(--gap-column-spacing) / 2);
+    margin-bottom: calc(var(--gap-column-spacing));
+}
+
+.contact>.item-cont {
+    display: flex;
+    gap: calc(var(--gap-row-spacing) / 2);
+    cursor: pointer;
+}
+
+.contact>.item-cont>.icon {
+    position: relative;
+    min-width: calc(var(--base-unit-font-size) * 2.25);
+    aspect-ratio: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 0.3s;
+}
+
+.contact>.item-cont>.icon:before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    aspect-ratio: 1;
+    border-radius: 25%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotateZ(45deg);
+    background: radial-gradient(var(--color-8), var(--color-5));
+    box-shadow: inset 0 0 5px 1px rgba(0, 0, 0, 0.5), 0 5px 5px rgba(0, 0, 0, 0.5);
+}
+
+.contact>.item-cont>.icon * {
+    color: var(--color-2);
+    z-index: 1;
+}
+
+.contact>.item-cont>.content {
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+}
+
+.contact>.item-cont>.content * {
+    color: var(--color-6);
+    width: 100%;
+    word-wrap: break-word;
+    outline: none;
+    text-decoration: none;
+}
+
+.contact>.item-cont:hover i {
+    transition: 0.2s;
+    color: var(--color-4);
+}
+
+.contact>.item-cont:hover .icon {
+    transform: scale(1.2);
+}
+
+.contact>.item-cont:hover p {
+    text-shadow: 0 0 5px var(--color-5);
+}
+
+
+/* Left Info ================================================================================================================================== */
+
+section.left-container div[class*="info"] {
+    --width-line-border: min(0.25vw, calc(var(--max-width-absolute) * 0.0025));
+    --color-border: var(--color-5);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+section.left-container div[class*="info"]>div:not(.title-container) {
+    align-self: center;
+}
+
+section.left-container div[class*="info"]>div {
+    width: 100%;
+    display: flex;
+}
+
+section.left-container div[class*="info"]>div.title-container {
+    height: var(--width-line-border);
+    margin: 0 0 calc(var(--base-unit-font-size) * 1.5) 0;
+}
+
+section.left-container div[class*="info"]>div.title-container>span {
+    flex-grow: 1;
+    height: 100%;
+    background-color: var(--color-border);
+    transform: scaleX(0);
+}
+
+section.left-container div[class*="info"]>div.title-container>span:nth-of-type(1) {
+    transform-origin: right;
+}
+
+section.left-container div[class*="info"]>div.title-container>span:nth-of-type(2) {
+    transform-origin: left;
+}
+
+section.left-container div[class*="info"]:hover> :is(span,
+.title-container>span) {
+    box-shadow: 0 0 5px var(--color-5);
+}
+
+section.left-container div[class*="info"]:hover .title-container> :not(span):before {
+    text-shadow: 0 0 5px var(--color-5);
+}
+
+section.left-container div[class*="info"]:hover>div.title-container>span {
+    transition-delay: 0.1s;
+    transition: 0.1s;
+    transform: scaleX(1);
+}
+
+section.left-container div[class*="info"]>div.title-container>*:not(span) {
+    color: transparent;
+    text-transform: uppercase;
+    margin: 0;
+    overflow: hidden;
+}
+
+section.left-container div[class*="info"]>div.title-container>*:not(span):before {
+    content: attr(data-text);
+    position: absolute;
+    text-transform: uppercase;
+    width: fit-content;
+    color: var(--color-border);
+    top: 0;
+    left: 0;
+    transition: 0.1s;
+    transform: translateY(calc(-50% + var(--width-line-border) / 2));
+}
+
+section.left-container div[class*="info"]:hover>div.title-container>*:not(span):before {
+    text-align: center;
+    width: fit-content;
+    left: 50%;
+    transform: translate(-50%, calc(-50% + var(--width-line-border) / 2));
+}
+
+section.left-container div[class*="info"]>:is(span:nth-child(1),
+span:nth-child(2)) {
+    position: absolute;
+    width: var(--width-line-border);
+    height: 100%;
+    background-color: var(--color-border);
+    transform-origin: top;
+    transform: scaleY(0);
+}
+
+section.left-container div[class*="info"]>span:nth-child(1) {
+    left: 0;
+}
+
+section.left-container div[class*="info"]>span:nth-child(2) {
+    right: 0;
+}
+
+section.left-container div[class*="info"]:hover> :is(span:nth-child(1),
+span:nth-child(2)) {
+    transition: 0.3s;
+    transition-delay: 0.2s;
+    transform: scaleY(1);
+}
+
+section.left-container div[class*="info"]>:is(span:nth-child(3),
+span:nth-child(4)) {
+    position: absolute;
+    width: 50%;
+    height: var(--width-line-border);
+    background-color: var(--color-border);
+    bottom: 0;
+    transform: scaleX(0);
+}
+
+section.left-container div[class*="info"]>span:nth-child(3) {
+    left: 0;
+    transform-origin: left;
+}
+
+section.left-container div[class*="info"]>span:nth-child(4) {
+    right: 0;
+    transform-origin: right;
+}
+
+section.left-container div[class*="info"]:hover> :is(span:nth-child(3),
+span:nth-child(4)) {
+    transition: 0.1s;
+    transition-delay: 0.5s;
+    transform: scaleX(1);
+}
+
+section.left-container div[class*="info"]>div:not(.title-container) {
+    transition: 0.2s;
+}
+
+section.left-container div[class*="info"]:hover>div:not(.title-container) {
+    width: calc(90% - var(--width-line-border));
+}
+
+section.left-container div[class*="info"]>div:not(.title-container):nth-of-type(1) {
+    transition-delay: 0.2s;
+}
+
+section.left-container div[class*="info"]>div:not(.title-container):nth-of-type(2) {
+    transition-delay: 0.4s;
+}
+
+section.left-container div[class*="info"]>div:not(.title-container):nth-of-type(3) {
+    transition-delay: 0.6s;
+}
+
+section.left-container div[class*="info"]>div:not(.title-container):nth-of-type(4) {
+    transition-delay: 0.8s;
+}
+
+section.left-container div[class*="info"]>div:not(.title-container):nth-of-type(5) {
+    transition-delay: 1s;
+}
+
+
+/* Left Details Info ================================================================================================================================== */
+
+section.left-container div[class*="info"] .item {
+    flex-direction: column;
+}
+
+section.left-container .item>.grade {
+    --border-radius-value: 25px;
+    position: relative;
+    height: calc(var(--base-unit-font-size) / 1.75);
+    background: linear-gradient(var(--color-2), var(--color-8), var(--color-2));
+    border-radius: var(--border-radius-value);
+    overflow: hidden;
+}
+
+section.left-container .item>.grade>div {
+    height: 100%;
+    border-radius: var(--border-radius-value);
+    background-color: var(--color-4);
+}
+
+section.left-container .item>.grade>div:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 50%;
+    height: 100%;
+    border-radius: var(--border-radius-value);
+    background: linear-gradient(75deg, var(--color-3), transparent);
+}
+
+section.left-container .item>.detail {
+    width: 90%;
+    align-self: flex-end;
+    margin: calc(var(--base-unit-font-size) / 2) 0;
+    padding: calc(var(--base-unit-font-size) / 2);
+    padding-right: 0;
+    padding-top: 0;
+    border: calc(var(--width-line-border) / 2) solid var(--color-4);
+    border-top: 0;
+    border-right: 0;
+    max-height: 0;
+    transition: 0.5s;
+    transform-origin: top;
+    transform: scaleY(0);
+}
+
+section.left-container .item:hover>.detail {
+    max-height: 100vh;
+    transform: scaleY(1);
+}
+
+section.left-container .item>.detail>p:before {
+    content: "● ";
+    color: var(--color-4);
+}
+
+section.left-container .item>.title {
+    text-transform: uppercase;
+    margin-top: 0;
+}
+
+section.left-container .item :is(.title,
+.detail>p) {
+    color: var(--color-6);
+}
+
+section.left-container .item .grade-str {
+    color: var(--color-5);
+}
+
+section.left-container .item .sub-title {
+    display: flex;
+    align-items: center;
+    gap: calc(var(--gap-row-spacing) / 2);
+}
+
+section.left-container .item .sub-title>.title {
+    text-transform: uppercase;
+}
+
+section.left-container .item .sub-title>.icon {
+    position: relative;
+    height: calc(var(--base-unit-font-size) * 1.75);
+    aspect-ratio: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 25%;
+    background-color: var(--color-3);
+}
+
+section.left-container .item .sub-title i {
+    color: var(--color-6);
+}
+
+
+/* Right ================================================================================================================================== */
+
+
+/* Right ================================================================================================================================== */
+
+
+/* Right ================================================================================================================================== */
+
+
+/* Right ================================================================================================================================== */
+
+
+/* Right ================================================================================================================================== */
+
+section.right-container>div[class*="info"] {
+    --icon-size: calc(var(--base-unit-font-size) * 3);
+    --icon-shape: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
+    --width-line: min(0.25vw, calc(var(--max-width-absolute) * 0.0025));
+    --color-line: var(--color-4);
+}
+
+section.right-container>div[class*="info"]>.title-container {
+    display: flex;
+    align-items: center;
+    gap: calc(var(--gap-row-spacing) / 2);
+    text-transform: uppercase;
+}
+
+section.right-container>div[class*="info"]>.title-container>.icon {
+    position: relative;
+    width: var(--icon-size);
+    aspect-ratio: 1;
+    color: var(--color-5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 0.3s;
+    clip-path: var(--icon-shape);
+    background: linear-gradient(45deg, var(--color-5), var(--color-4), var(--color-3));
+}
+
+section.right-container>div[class*="info"]:hover>.title-container>.icon {
+    transform: scale(1.2);
+    z-index: 1;
+}
+
+section.right-container>div[class*="info"]>.title-container>.icon:before {
+    --border: calc(var(--base-unit-font-size) / 4);
+    content: "";
+    position: absolute;
+    top: var(--border);
+    bottom: var(--border);
+    left: var(--border);
+    right: var(--border);
+    clip-path: var(--icon-shape);
+    background-color: var(--color-2);
+    z-index: -1;
+}
+
+section.right-container>div[class*="info"]>.title-container>:not(.icon) {
+    background: linear-gradient(45deg, var(--color-5), var(--color-4), var(--color-3));
+    -webkit-background-clip: text;
+    color: transparent;
+    text-shadow: 0 0 4px var(--color-2);
+}
+
+section.right-container>div[class*="info"]>.content {
+    --content-item-minimize-transition: 0.2s;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+section.right-container>div[class*="info"]>.content>.item {
+    --transition-delay-base-unit: 0.1s;
+    position: relative;
+    width: 100%;
+    transition: var(--content-item-minimize-transition);
+    padding-left: calc(var(--gap-row-spacing) / 2);
+}
+
+section.right-container>div[class*="info"]:hover .content>.item {
+    width: calc(100% - var(--icon-size));
+    transition-delay: var(--transition-delay-value);
+}
+
+section.right-container>div[class*="info"]>.content>.item:nth-child(1) {
+    --transition-delay-value: calc(var(--transition-delay-base-unit) * 0);
+}
+
+section.right-container>div[class*="info"]>.content>.item:nth-child(2) {
+    --transition-delay-value: calc(var(--transition-delay-base-unit) * 1);
+}
+
+section.right-container>div[class*="info"]>.content>.item:nth-child(3) {
+    --transition-delay-value: calc(var(--transition-delay-base-unit) * 2);
+}
+
+section.right-container>div[class*="info"]>.content>.item:nth-child(4) {
+    --transition-delay-value: calc(var(--transition-delay-base-unit) * 3);
+}
+
+section.right-container>div[class*="info"]>.content>.item:nth-child(5) {
+    --transition-delay-value: calc(var(--transition-delay-base-unit) * 4);
+}
+
+section.right-container>div[class*="info"]>.content>.item:before {
+    content: "";
+    position: absolute;
+    width: var(--width-line);
+    height: 100%;
+    background-color: var(--color-line);
+    left: calc(var(--icon-size) * -0.5);
+    transform: translateX(-50%) scaleY(0);
+    transform-origin: top;
+}
+
+section.right-container>div[class*="info"]>.content>.item:nth-last-child(1):before {
+    height: 50%;
+}
+
+section.right-container>div[class*="info"]>.content>.item:after {
+    content: "";
+    position: absolute;
+    width: calc(var(--icon-size) / 2 + var(--width-line) / 4);
+    height: var(--width-line);
+    background-color: var(--color-line);
+    top: calc(50% - var(--gap-column-spacing) / 4);
+    left: 0;
+    transform: translate(-100%, -50%) scaleX(0);
+    transform-origin: left;
+}
+
+section.right-container>div[class*="info"]>.content>.item:last-child:after {
+    top: 50%;
+}
+
+section.right-container>div[class*="info"]:hover>.content>.item:before {
+    transition: var(--transition-delay-base-unit);
+    transition-delay: calc(var(--content-item-minimize-transition) + var(--transition-delay-value));
+    transform: translateX(-50%) scaleY(1);
+}
+
+section.right-container>div[class*="info"]:hover>.content>.item:after {
+    transition: 0.5s;
+    transition-delay: calc(var(--content-item-minimize-transition) + var(--transition-delay-value) + var(--transition-delay-base-unit));
+    transform: translate(-100%, -50%) scaleX(1);
+}
+
+
+/* Another ================================================================================================================================== */
+
+.content>.item>div[class*="-time-container"] {
+    display: flex;
+    gap: 1ch;
+    justify-content: space-between;
+}
+
+.content>.item {
+    color: var(--color-9);
+    padding-bottom: calc(var(--gap-column-spacing) / 2);
+}
+
+.content>.item:last-child {
+    padding-bottom: 0;
+}
+
+.content>.item>div[class*="-time-container"]>:nth-child(1):not(p) {
+    text-transform: uppercase;
+    color: var(--color-2);
+}
+
+.content>.item>div[class*="-time-container"]>:nth-child(2) {
+    flex-shrink: 0;
+}
