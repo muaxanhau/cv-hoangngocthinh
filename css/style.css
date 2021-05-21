@@ -1044,7 +1044,7 @@ section.right-container>div[class*="info"]>.content>.item:nth-last-child(1):befo
 section.right-container>div[class*="info"]>.content>.item:after {
     content: "";
     position: absolute;
-    width: calc(var(--icon-size) / 2 + var(--width-line) / 4);
+    width: calc(var(--icon-size) / 2);
     height: var(--width-line);
     background-color: var(--color-line);
     top: calc(50% - var(--gap-column-spacing) / 4);
