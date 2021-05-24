@@ -196,7 +196,6 @@ body {
     left: 50%;
     transform: translate(-50%, -50%);
     color: var(--color-3);
-    z-index: 1;
     animation: fade-cap-animation 3s 2s ease-in-out forwards;
 }
 
@@ -305,7 +304,6 @@ body {
     display: flex;
     border-radius: var(--border-radius-value);
     box-shadow: 10px 10px 20px var(--color-2), -10px 10px 20px var(--color-2);
-    z-index: 1;
     /* Show CV */
     animation: show-main-container-animation var(--duration-display-main-container) var(--delay-display-main-container) ease-in forwards;
     opacity: 0;
