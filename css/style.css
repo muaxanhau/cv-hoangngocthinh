@@ -490,7 +490,8 @@ body {
     }
 }
 
-.avatar> :not(.img-container) {
+.avatar> :not(.img-container, .position) {
+    margin: 0;
     position: relative;
     -webkit-box-reflect: below 0px linear-gradient(to bottom, transparent, rgba(0, 0, 0, 0.15));
     text-align: center;
@@ -604,6 +605,13 @@ body {
     }
 }
 
+.avatar .position {
+    color: var(--color-5);
+    text-transform: uppercase;
+    margin: 0;
+    font-weight: 900;
+    transform: scaleY(1.2);
+}
 
 /* Contact ================================================================================================================================== */
 
@@ -749,7 +757,6 @@ section.left-container div[class*="info"]>div.title-container>*:not(span):before
     color: var(--color-border);
     top: 0;
     left: 0;
-    transition: 0.1s;
     transform: translateY(calc(-50% + var(--width-line-border) / 2));
 }
 
