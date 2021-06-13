@@ -606,7 +606,7 @@ body {
 }
 
 .avatar .position {
-    color: var(--color-5);
+    color: var(--color-6);
     text-transform: uppercase;
     margin: 0;
     font-weight: 900;
@@ -868,6 +868,11 @@ section.left-container .item>details.skill>summary {
     cursor: pointer;
     color: var(--color-3);
     transition: 0.2s;
+    opacity: 0.4;
+}
+
+section.left-container div[class*="info"]:hover summary {
+    opacity: 1;
 }
 
 section.left-container .item>details.skill[open] summary {
