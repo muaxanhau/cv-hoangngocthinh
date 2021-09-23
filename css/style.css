@@ -229,7 +229,8 @@ body {
     width: calc(var(--loader-size) * var(--loader-circle-size));
     aspect-ratio: 1;
     border-radius: 100%;
-    background-color: var(--color-4);
+    background-color: var(--color-2);
+    box-shadow: 0 0 3px var(--color-5) inset;
     transform: scale(0);
     animation: loader-circle-scale-animation var(--loader-duration) var(--loader-delay-time) ease-in-out var(--loader-iteration-count);
 }
